@@ -1,27 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# fastfetch
-
-# figlet -c -w $(tput cols) -fslant "Pwn Guy" | lolcat -pad 1
-
-# figlet -c -w $(tput cols) -fslant "Sponge Bob" | lolcat -pad 1
-
-# cat<<'EOF' | awk -v width=$(tput cols) '{ padding = int((width - length($0)) / 2); printf "%*s%s\n", padding, "", $0 }' | lolcat -pad 1
-# ⠀⠀⠀⠀⢀⣀⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀
-# ⠀⢀⣤⣾⣿⣾⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀
-# ⢠⣾⣿⢛⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀
-# ⣾⣯⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧
-# ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-# ⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⢿⡵
-# ⢸⡇⠀⠀⠉⠛⠛⣿⣿⠛⠛⠉⠀⠀⣿⡇
-# ⢸⣿⣀⠀⢀⣠⣴⡇⠹⣦⣄⡀⠀⣠⣿⡇
-# ⠈⠻⠿⠿⣟⣿⣿⣦⣤⣼⣿⣿⠿⠿⠟⠀
-# ⠀⠀⠀⠀⠸⡿⣿⣿⢿⡿⢿⠇⠀⠀⠀⠀
-# ⠀⠀⠀⠀⠀⠀⠈⠁⠈⠁⠀⠀⠀⠀⠀⠀
-# EOF
-
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
@@ -115,11 +91,6 @@ alias ls="eza --color=auto --icons=auto"
 alias ll="eza -lh"
 alias la="eza -lah"
 alias lt="eza -T"
-alias clip="xclip -selection clipboard"
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -136,10 +107,17 @@ fi
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH=/home/sayed/.opencode/bin:$PATH
+export PATH="/home/sayed/.local/bin:$PATH"
 export PWNDBG_NO_AUTOUPDATE=1
+export PDCP_API_KEY=cd87d0c1-0c53-4575-aeeb-45b3146b54bd
 
 # fzf
 command -v fzf >/dev/null && eval "$(fzf --bash)"
 
 # zoxide
 eval "$(zoxide init bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
